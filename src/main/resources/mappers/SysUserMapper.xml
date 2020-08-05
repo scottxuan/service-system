@@ -11,6 +11,7 @@
         <result column="password" property="password" />
         <result column="salt" property="salt" />
         <result column="isSystem" property="isSystem" />
+        <result column="isLocked" property="isLocked" />
         <result column="isDeleted" property="isDeleted" />
         <result column="createTime" property="createTime" />
         <result column="lastUpdateTime" property="lastUpdateTime" />
@@ -18,7 +19,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, account, name, mobile, password, salt, isSystem, isDeleted, createTime, lastUpdateTime
+        id, account, name, mobile, password, salt, isSystem, isLocked, isDeleted, createTime, lastUpdateTime
     </sql>
 
 </mapper>
