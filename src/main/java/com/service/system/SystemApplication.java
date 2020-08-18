@@ -15,13 +15,13 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableEurekaClient
 @MapperScan(basePackages = {"com.service.system.mapper"})
 @ComponentScan(basePackages = {"com.scottxuan","com.service.system"})
-public class UserApplication extends SpringBootServletInitializer {
+public class SystemApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class,args);
+        SpringApplication.run(SystemApplication.class,args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(UserApplication.class);
+        return builder.sources(SystemApplication.class);
     }
 }
