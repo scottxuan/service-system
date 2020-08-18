@@ -1,4 +1,4 @@
-package com.service.user.swagger;
+package com.service.system.swagger;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import com.scottxuan.web.swagger.AbstractSwaggerConfig;
@@ -16,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableKnife4j
 public class SwaggerConfig extends AbstractSwaggerConfig {
 
-    private static final String BASE_PACKAGE = "com.service.user.api";
+    private static final String BASE_PACKAGE = "com.service.system.api";
     private static final String TITLE = "SERVICE-BASE Restful API Docs";
     private static final String DESCRIPTION = "SERVICE-BASE Restful API Docs";
     private static final String VERSION = "2.0";

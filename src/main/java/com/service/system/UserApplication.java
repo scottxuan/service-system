@@ -1,4 +1,4 @@
-package com.service.user;
+package com.service.system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,8 +13,8 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @EnableEurekaClient
-@MapperScan(basePackages = {"com.service.user.mapper"})
-@ComponentScan(basePackages = {"com.scottxuan","com.service.user"})
+@MapperScan(basePackages = {"com.service.system.mapper"})
+@ComponentScan(basePackages = {"com.scottxuan","com.service.system"})
 public class UserApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class,args);

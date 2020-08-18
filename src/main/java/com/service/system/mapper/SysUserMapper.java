@@ -1,4 +1,4 @@
-package com.service.user.mapper;
+package com.service.system.mapper;
 
 import com.scottxuan.core.base.BaseMapper;
 import com.module.user.entity.SysUser;

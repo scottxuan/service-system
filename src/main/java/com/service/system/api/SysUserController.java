@@ -1,13 +1,12 @@
-package com.service.user.api;
+package com.service.system.api;
 
 import com.module.user.api.SysUserApi;
 import com.module.user.entity.SysUser;
 import com.scottxuan.web.base.BaseController;
 import com.scottxuan.web.result.ResultDto;
-import com.service.user.service.SysUserService;
+import com.service.system.service.SysUserService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**

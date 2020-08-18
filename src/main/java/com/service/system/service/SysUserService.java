@@ -1,4 +1,4 @@
-package com.service.user.service;
+package com.service.system.service;
 
 import com.scottxuan.base.result.ResultBo;
 import com.scottxuan.core.base.BaseService;

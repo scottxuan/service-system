@@ -1,11 +1,11 @@
-package com.service.user.service.impl;
+package com.service.system.service.impl;
 
 import com.scottxuan.base.result.ResultBo;
 import com.scottxuan.core.base.BaseMapper;
 import com.scottxuan.core.base.BaseServiceImpl;
 import com.module.user.entity.SysUser;
-import com.service.user.mapper.SysUserMapper;
-import com.service.user.service.SysUserService;
+import com.service.system.mapper.SysUserMapper;
+import com.service.system.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
