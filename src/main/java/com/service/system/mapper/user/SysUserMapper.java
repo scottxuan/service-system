@@ -1,7 +1,7 @@
-package com.service.system.mapper;
+package com.service.system.mapper.user;
 
 import com.scottxuan.core.base.BaseMapper;
-import com.module.user.entity.SysUser;
+import com.module.system.entity.SysUser;
 import org.springframework.stereotype.Repository;
 
 /**

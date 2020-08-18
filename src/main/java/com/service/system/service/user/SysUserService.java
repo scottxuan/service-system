@@ -1,8 +1,8 @@
-package com.service.system.service;
+package com.service.system.service.user;
 
 import com.scottxuan.base.result.ResultBo;
 import com.scottxuan.core.base.BaseService;
-import com.module.user.entity.SysUser;
+import com.module.system.entity.SysUser;
 
 /**
  * <p>
