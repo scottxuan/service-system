@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
  *
  * @author scottxuan
  */
-@Api(tags = "10000--系统配置管理")
+@Api(tags = "10000--配置管理")
 @RestController
 @RequestMapping("${api}/system/config")
 public class SysConfigController extends BaseController implements SysConfigApi {
@@ -45,5 +45,10 @@ public class SysConfigController extends BaseController implements SysConfigApi 
     @Override
     public ResultDto updateByDto(List<SysConfigDto> dtos) {
         return getResultDto(sysConfigService.updateByDto(dtos));
+    }
+
+    @Override
+    public ResultDto clearCache() {
+        return getResultDto(sysConfigService.clearCache());
     }
 }

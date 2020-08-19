@@ -1,7 +1,10 @@
 package com.service.system.service.config;
 
 import com.module.system.entity.SysConfigGroup;
+import com.scottxuan.base.result.ResultBo;
 import com.scottxuan.core.base.BaseService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.scottxuan.core.base.BaseService;
  */
 public interface SysConfigGroupService extends BaseService<SysConfigGroup> {
 
+    ResultBo<SysConfigGroup> findByCode(String code);
+
+    List<SysConfigGroup> findAll();
 }

@@ -1,6 +1,7 @@
 package com.service.system.service.config.impl;
 
 import com.google.common.collect.Lists;
+import com.module.common.constants.CacheConstant;
 import com.module.system.dto.SysConfigDto;
 import com.module.system.entity.SysConfig;
 import com.module.system.enums.SysConfigTypeEnum;
@@ -9,6 +10,7 @@ import com.scottxuan.base.result.ResultBo;
 import com.scottxuan.core.base.BaseMapper;
 import com.scottxuan.core.base.BaseServiceImpl;
 
+import com.scottxuan.core.redis.CacheService;
 import com.scottxuan.core.utils.EntityUtils;
 import com.service.system.mapper.config.SysConfigMapper;
 import com.service.system.service.config.SysConfigService;
@@ -43,20 +45,28 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
 
     @Override
     public List<SysConfig> findByGroupCode(String groupCode) {
+        if (CacheService.containKey(CacheConstant.PREFIX_CONFIG_GROUP_CODE + groupCode)) {
+            return (List<SysConfig>) CacheService.get(CacheConstant.PREFIX_CONFIG_GROUP_CODE + groupCode);
+        }
         SysConfig var1 = new SysConfig();
         var1.setGroupCode(groupCode);
         var1.setIsDeleted(Boolean.FALSE);
         List<SysConfig> configs = sysConfigMapper.select(var1);
-        return configs.stream().map(this::convertToDto).collect(Collectors.toList());
+        CacheService.set(CacheConstant.PREFIX_CONFIG_GROUP_CODE + groupCode,configs);
+        return configs;
     }
 
     @Override
     public SysConfig findByCode(String code) {
+        if (CacheService.containKey(CacheConstant.PREFIX_CONFIG_GROUP_CODE + code)) {
+            return (SysConfig) CacheService.get(CacheConstant.PREFIX_CONFIG_GROUP_CODE + code);
+        }
         SysConfig var1 = new SysConfig();
         var1.setCode(code);
         var1.setIsDeleted(Boolean.FALSE);
         SysConfig config = sysConfigMapper.selectOne(var1);
-        return convertToDto(config);
+        CacheService.set(CacheConstant.PREFIX_CONFIG_GROUP_CODE + code,config);
+        return config;
     }
 
     @Override
@@ -103,6 +113,15 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
                 sysConfigMapper.updateByPrimaryKeySelective(config);
             }
         });
+        CacheService.clear(CacheConstant.PREFIX_CONFIG_GROUP_CODE);
+        CacheService.clear(CacheConstant.PREFIX_CONFIG_CODE);
+        return ResultBo.of(Boolean.TRUE);
+    }
+
+    @Override
+    public ResultBo<Boolean> clearCache() {
+        CacheService.clear(CacheConstant.PREFIX_CONFIG_GROUP_CODE);
+        CacheService.clear(CacheConstant.PREFIX_CONFIG_CODE);
         return ResultBo.of(Boolean.TRUE);
     }
 }

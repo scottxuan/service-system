@@ -44,4 +44,11 @@ public interface SysConfigService extends BaseService<SysConfig> {
      * @return
      */
     ResultBo<Boolean> updateByDto(List<SysConfigDto> dtos);
+
+    /**
+     * 清除缓存
+     * @return
+     */
+    ResultBo<Boolean> clearCache();
+
 }
