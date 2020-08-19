@@ -52,24 +52,4 @@ public class SysConfigController extends BaseController implements SysConfigApi 
     public ResultDto<Boolean> clearCache() {
         return getResultDto(sysConfigService.clearCache());
     }
-
-    @Override
-    public ResultDto<String> findTextByCode(String code) {
-        return getResultDto(sysConfigService.findTextByCode(code));
-    }
-
-    @Override
-    public ResultDto<String> findSingleByCode(String code) {
-        return getResultDto(sysConfigService.findSingleByCode(code));
-    }
-
-    @Override
-    public ResultDto<List<String>> findMultipleByCode(String code) {
-        return getResultDto(sysConfigService.findMultipleByCode(code));
-    }
-
-    @Override
-    public ResultDto<Boolean> findBooleanByCode(String code) {
-        return getResultDto(sysConfigService.findBooleanByCode(code));
-    }
 }
