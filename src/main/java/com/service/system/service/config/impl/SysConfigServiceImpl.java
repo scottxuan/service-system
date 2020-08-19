@@ -124,4 +124,40 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
         CacheService.clear(CacheConstant.PREFIX_CONFIG_CODE);
         return ResultBo.of(Boolean.TRUE);
     }
+
+    @Override
+    public ResultBo<String> findTextByCode(String code) {
+        SysConfig config = findByCode(code);
+        if (config != null) {
+            return ResultBo.of(config.getValue());
+        }
+        return ResultBo.empty();
+    }
+
+    @Override
+    public ResultBo<String> findSingleByCode(String code) {
+        SysConfig config = findByCode(code);
+        if (config != null) {
+            return ResultBo.of(config.getValue());
+        }
+        return ResultBo.empty();
+    }
+
+    @Override
+    public ResultBo<List<String>> findMultipleByCode(String code) {
+        SysConfig config = findByCode(code);
+        if (config != null) {
+            return ResultBo.of(Lists.newArrayList(config.getValue().split(MARK1)));
+        }
+        return ResultBo.of(Lists.newArrayList());
+    }
+
+    @Override
+    public ResultBo<Boolean> findBooleanByCode(String code) {
+        SysConfig config = findByCode(code);
+        if (config != null) {
+            return ResultBo.of("1".equals(config.getValue()));
+        }
+        return ResultBo.of(Boolean.FALSE);
+    }
 }

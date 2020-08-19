@@ -1,5 +1,6 @@
 package com.service.system.api.config;
 
+import com.google.common.collect.Lists;
 import com.module.system.api.SysConfigApi;
 import com.module.system.dto.SysConfigDto;
 import com.module.system.entity.SysConfig;
@@ -43,12 +44,32 @@ public class SysConfigController extends BaseController implements SysConfigApi 
     }
 
     @Override
-    public ResultDto updateByDto(List<SysConfigDto> dtos) {
+    public ResultDto<Boolean> updateByDto(List<SysConfigDto> dtos) {
         return getResultDto(sysConfigService.updateByDto(dtos));
     }
 
     @Override
-    public ResultDto clearCache() {
+    public ResultDto<Boolean> clearCache() {
         return getResultDto(sysConfigService.clearCache());
+    }
+
+    @Override
+    public ResultDto<String> findTextByCode(String code) {
+        return getResultDto(sysConfigService.findTextByCode(code));
+    }
+
+    @Override
+    public ResultDto<String> findSingleByCode(String code) {
+        return getResultDto(sysConfigService.findSingleByCode(code));
+    }
+
+    @Override
+    public ResultDto<List<String>> findMultipleByCode(String code) {
+        return getResultDto(sysConfigService.findMultipleByCode(code));
+    }
+
+    @Override
+    public ResultDto<Boolean> findBooleanByCode(String code) {
+        return getResultDto(sysConfigService.findBooleanByCode(code));
     }
 }

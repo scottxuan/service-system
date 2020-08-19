@@ -51,4 +51,32 @@ public interface SysConfigService extends BaseService<SysConfig> {
      */
     ResultBo<Boolean> clearCache();
 
+    /**
+     * 根据code查询value
+     * @param code
+     * @return
+     */
+    ResultBo<String> findTextByCode(String code);
+
+
+    /**
+     * 根据code查询value
+     * @param code
+     * @return
+     */
+    ResultBo<String> findSingleByCode(String code);
+
+    /**
+     * 根据code查询value
+     * @param code
+     * @return
+     */
+    ResultBo<List<String>> findMultipleByCode(String code);
+
+    /**
+     * 根据code查询value
+     * @param code
+     * @return
+     */
+    ResultBo<Boolean> findBooleanByCode(String code);
 }
