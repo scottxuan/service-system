@@ -5,6 +5,7 @@ import com.module.common.constants.CacheConstant;
 import com.module.system.dto.SysConfigDto;
 import com.module.system.entity.SysConfig;
 import com.module.system.enums.SysConfigTypeEnum;
+import com.scottxuan.base.exception.Assert;
 import com.scottxuan.base.pair.CodeNamePair;
 import com.scottxuan.base.result.ResultBo;
 import com.scottxuan.core.base.BaseMapper;
@@ -34,6 +35,8 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
 
     private final static String MARK1 = ";";
     private final static String MARK2 = "#";
+    private final static String CODE_BLANK = "code cannot be blank.";
+    private final static String GROUP_CODE_BLANK = "group code cannot be blank.";
 
     @Autowired
     private SysConfigMapper sysConfigMapper;
@@ -45,6 +48,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
 
     @Override
     public List<SysConfig> findByGroupCode(String groupCode) {
+        Assert.isBlank(groupCode,GROUP_CODE_BLANK);
         if (CacheService.containKey(CacheConstant.PREFIX_CONFIG_GROUP_CODE + groupCode)) {
             return (List<SysConfig>) CacheService.get(CacheConstant.PREFIX_CONFIG_GROUP_CODE + groupCode);
         }
@@ -58,6 +62,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
 
     @Override
     public SysConfig findByCode(String code) {
+        Assert.isBlank(code,CODE_BLANK);
         if (CacheService.containKey(CacheConstant.PREFIX_CONFIG_GROUP_CODE + code)) {
             return (SysConfig) CacheService.get(CacheConstant.PREFIX_CONFIG_GROUP_CODE + code);
         }
@@ -127,6 +132,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
 
     @Override
     public ResultBo<String> findTextByCode(String code) {
+        Assert.isBlank(code,CODE_BLANK);
         SysConfig config = findByCode(code);
         if (config != null) {
             return ResultBo.of(config.getValue());
@@ -136,6 +142,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
 
     @Override
     public ResultBo<String> findSingleByCode(String code) {
+        Assert.isBlank(code,CODE_BLANK);
         SysConfig config = findByCode(code);
         if (config != null) {
             return ResultBo.of(config.getValue());
@@ -145,6 +152,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
 
     @Override
     public ResultBo<List<String>> findMultipleByCode(String code) {
+        Assert.isBlank(code,CODE_BLANK);
         SysConfig config = findByCode(code);
         if (config != null) {
             return ResultBo.of(Lists.newArrayList(config.getValue().split(MARK1)));
@@ -154,6 +162,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
 
     @Override
     public ResultBo<Boolean> findBooleanByCode(String code) {
+        Assert.isBlank(code,CODE_BLANK);
         SysConfig config = findByCode(code);
         if (config != null) {
             return ResultBo.of("1".equals(config.getValue()));
