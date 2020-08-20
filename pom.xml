@@ -32,7 +32,7 @@
     </dependencies>
 
     <build>
-        <finalName>service-user-${service-user.version}-${version-suffix}</finalName>
+        <finalName>service-system-${service-system.version}-${version-suffix}</finalName>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
