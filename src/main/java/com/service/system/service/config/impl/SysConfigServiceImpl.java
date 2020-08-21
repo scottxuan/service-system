@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /**
@@ -110,7 +111,8 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
     }
 
     @Override
-    public ResultBo<Boolean> updateByDto(List<SysConfigDto> dtos) {
+    public ResultBo<Integer> updateByDto(List<SysConfigDto> dtos) {
+        AtomicInteger count = new AtomicInteger(0);
         dtos.forEach(dto -> {
             List<String> selectValueList = dto.getSelectValueList();
             String value = selectValueList.isEmpty() ? "" : StringUtils.join(selectValueList, MARK1);
@@ -118,11 +120,12 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
             if (config != null) {
                 config.setValue(value);
                 sysConfigMapper.updateByPrimaryKeySelective(config);
+                count.getAndIncrement();
             }
         });
         CacheService.clear(CacheConstant.PREFIX_CONFIG_GROUP_CODE);
         CacheService.clear(CacheConstant.PREFIX_CONFIG_CODE);
-        return ResultBo.of(Boolean.TRUE);
+        return ResultBo.of(count.get());
     }
 
     @Override

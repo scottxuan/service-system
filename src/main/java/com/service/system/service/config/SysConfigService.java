@@ -43,7 +43,7 @@ public interface SysConfigService extends BaseService<SysConfig> {
      * @param dtos
      * @return
      */
-    ResultBo<Boolean> updateByDto(List<SysConfigDto> dtos);
+    ResultBo<Integer> updateByDto(List<SysConfigDto> dtos);
 
     /**
      * 清除缓存

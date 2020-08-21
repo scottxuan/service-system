@@ -44,7 +44,7 @@ public class SysConfigController extends BaseController implements SysConfigApi 
     }
 
     @Override
-    public ResultDto<Boolean> updateByDto(List<SysConfigDto> dtos) {
+    public ResultDto<Integer> updateByDto(List<SysConfigDto> dtos) {
         return getResultDto(sysConfigService.updateByDto(dtos));
     }
 
