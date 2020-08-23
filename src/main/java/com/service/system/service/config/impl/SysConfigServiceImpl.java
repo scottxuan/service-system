@@ -6,7 +6,7 @@ import com.module.system.dto.SysConfigDto;
 import com.module.system.entity.SysConfig;
 import com.module.system.enums.SysConfigTypeEnum;
 import com.scottxuan.base.exception.Assert;
-import com.scottxuan.base.pair.CodeNamePair;
+import com.scottxuan.base.pair.Pair;
 import com.scottxuan.base.result.ResultBo;
 import com.scottxuan.core.base.BaseMapper;
 import com.scottxuan.core.base.BaseServiceImpl;
@@ -97,7 +97,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
                 EntityUtils.copyPropertiesIgnoreNull(config, dto);
             }
             List<String> var1 = Lists.newArrayList(config.getAllValue().split(MARK1));
-            List<CodeNamePair> pairs = var1.stream().map(var -> new CodeNamePair(var.split(MARK2)[0], var.split(MARK2)[1])).collect(Collectors.toList());
+            List<Pair<String,String>> pairs = var1.stream().map(var -> new Pair<>(var.split(MARK2)[0], var.split(MARK2)[1])).collect(Collectors.toList());
             dto.setValueList(pairs);
         }
         if (SysConfigTypeEnum.MULTIPLE.type == config.getType()) {
