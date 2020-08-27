@@ -7,6 +7,7 @@ import com.scottxuan.web.result.ResultDto;
 import com.service.system.service.user.SysUserService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Api(tags = "10000--账户管理")
 @RestController
+@RequestMapping(SysUserApi.MAPPING)
 public class SysUserController extends BaseController implements SysUserApi {
     @Autowired
     private SysUserService sysUserService;

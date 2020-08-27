@@ -7,6 +7,7 @@ import com.scottxuan.web.result.ResultDto;
 import com.service.system.service.config.SysConfigGroupService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.List;
  */
 @Api(tags = "10001--分组管理")
 @RestController
+@RequestMapping(SysConfigGroupApi.MAPPING)
 public class SysConfigGroupController extends BaseController implements SysConfigGroupApi {
     @Autowired
     private SysConfigGroupService sysConfigGroupService;

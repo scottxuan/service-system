@@ -50,14 +50,14 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
         if (StringUtils.isBlank(groupCode)) {
             return Lists.newArrayList();
         }
-        if (CacheService.containKey(CacheConstant.PREFIX_CONFIG_GROUP_CODE + groupCode)) {
-            return (List<SysConfig>) CacheService.get(CacheConstant.PREFIX_CONFIG_GROUP_CODE + groupCode);
+        if (CacheService.containKey(CacheConstant.CONFIG_GROUP_CODE + groupCode)) {
+            return (List<SysConfig>) CacheService.get(CacheConstant.CONFIG_GROUP_CODE + groupCode);
         }
         SysConfig var1 = new SysConfig();
         var1.setGroupCode(groupCode);
         var1.setIsDeleted(Boolean.FALSE);
         List<SysConfig> configs = sysConfigMapper.select(var1);
-        CacheService.set(CacheConstant.PREFIX_CONFIG_GROUP_CODE + groupCode,configs);
+        CacheService.set(CacheConstant.CONFIG_GROUP_CODE + groupCode,configs);
         return configs;
     }
 
@@ -66,14 +66,14 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
         if (StringUtils.isBlank(code)) {
             return null;
         }
-        if (CacheService.containKey(CacheConstant.PREFIX_CONFIG_GROUP_CODE + code)) {
-            return (SysConfig) CacheService.get(CacheConstant.PREFIX_CONFIG_GROUP_CODE + code);
+        if (CacheService.containKey(CacheConstant.CONFIG_GROUP_CODE + code)) {
+            return (SysConfig) CacheService.get(CacheConstant.CONFIG_GROUP_CODE + code);
         }
         SysConfig var1 = new SysConfig();
         var1.setCode(code);
         var1.setIsDeleted(Boolean.FALSE);
         SysConfig config = sysConfigMapper.selectOne(var1);
-        CacheService.set(CacheConstant.PREFIX_CONFIG_GROUP_CODE + code,config);
+        CacheService.set(CacheConstant.CONFIG_GROUP_CODE + code,config);
         return config;
     }
 
@@ -123,15 +123,15 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
                 count.getAndIncrement();
             }
         });
-        CacheService.clear(CacheConstant.PREFIX_CONFIG_GROUP_CODE);
-        CacheService.clear(CacheConstant.PREFIX_CONFIG_CODE);
+        CacheService.clear(CacheConstant.CONFIG_GROUP_CODE);
+        CacheService.clear(CacheConstant.CONFIG_CODE);
         return ResultBo.of(count.get());
     }
 
     @Override
     public ResultBo<Boolean> clearCache() {
-        CacheService.clear(CacheConstant.PREFIX_CONFIG_GROUP_CODE);
-        CacheService.clear(CacheConstant.PREFIX_CONFIG_CODE);
+        CacheService.clear(CacheConstant.CONFIG_GROUP_CODE);
+        CacheService.clear(CacheConstant.CONFIG_CODE);
         return ResultBo.of(Boolean.TRUE);
     }
 

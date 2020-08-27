@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  */
 @Api(tags = "10000--配置管理")
 @RestController
-@RequestMapping("${api}/system/config")
+@RequestMapping(SysConfigApi.MAPPING)
 public class SysConfigController extends BaseController implements SysConfigApi {
     @Autowired
     private SysConfigService sysConfigService;
