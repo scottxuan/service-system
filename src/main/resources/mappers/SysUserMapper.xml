@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.service.system.mapper.user.SysUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.module.system.entity.SysUser">
+        <id column="id" property="id" />
+        <result column="account" property="account" />
+        <result column="name" property="name" />
+        <result column="mobile" property="mobile" />
+        <result column="password" property="password" />
+        <result column="salt" property="salt" />
+        <result column="isSuper" property="isSuper" />
+        <result column="isLocked" property="isLocked" />
+        <result column="isDeleted" property="isDeleted" />
+        <result column="createTime" property="createTime" />
+        <result column="lastUpdateTime" property="lastUpdateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, account, name, mobile, password, salt, isSuper, isLocked, isDeleted, createTime, lastUpdateTime
+    </sql>
+
+</mapper>
