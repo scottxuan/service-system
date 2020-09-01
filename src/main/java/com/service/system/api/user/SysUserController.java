@@ -29,4 +29,9 @@ public class SysUserController extends BaseController implements SysUserApi {
     public ResultDto<SysUser> findByAccount(String account) {
         return getResultDto(sysUserService.findByAccount(account));
     }
+
+    @Override
+    public ResultDto<SysUser> findById(Integer id) {
+        return getResultDto(sysUserService.selectById(id));
+    }
 }
