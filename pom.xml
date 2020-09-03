@@ -44,6 +44,7 @@
                     <include>bootstrap.yml</include>
                     <include>bootstrap-${profileActive}.yml</include>
                     <include>mappers/**.xml</include>
+                    <include>**.key</include>
                 </includes>
             </resource>
         </resources>

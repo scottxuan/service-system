@@ -1,11 +1,10 @@
 package com.service.system.service.config.impl;
 
 import com.google.common.collect.Lists;
-import com.module.common.constants.CacheConstant;
+import com.module.system.constants.CacheConstant;
 import com.module.system.dto.SysConfigDto;
 import com.module.system.entity.SysConfig;
 import com.module.system.enums.SysConfigTypeEnum;
-import com.scottxuan.base.exception.Assert;
 import com.scottxuan.base.pair.Pair;
 import com.scottxuan.base.result.ResultBo;
 import com.scottxuan.core.base.BaseMapper;

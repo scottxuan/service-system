@@ -14,7 +14,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @EnableEurekaClient
 @MapperScan(basePackages = {"com.service.system.mapper"})
-@ComponentScan(basePackages = {"com.scottxuan","com.service.system"})
+@ComponentScan(basePackages = {"com.scottxuan","com.module","com.service.system"})
 public class SystemApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(SystemApplication.class,args);
