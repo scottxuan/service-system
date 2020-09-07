@@ -135,7 +135,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
     }
 
     @Override
-    public ResultBo<String> findTextByCode(String code) {
+    public ResultBo<String> getText(String code) {
         if (StringUtils.isNotBlank(code)) {
             SysConfig config = findByCode(code);
             if (config != null) {
@@ -146,7 +146,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
     }
 
     @Override
-    public ResultBo<String> findSingleByCode(String code) {
+    public ResultBo<String> getSingle(String code) {
         if (StringUtils.isNotBlank(code)) {
             SysConfig config = findByCode(code);
             if (config != null) {
@@ -157,7 +157,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
     }
 
     @Override
-    public ResultBo<List<String>> findMultipleByCode(String code) {
+    public ResultBo<List<String>> getMultiple(String code) {
         if (StringUtils.isNotBlank(code)) {
             SysConfig config = findByCode(code);
             if (config != null) {
@@ -168,7 +168,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfig> implements 
     }
 
     @Override
-    public ResultBo<Boolean> findBooleanByCode(String code) {
+    public ResultBo<Boolean> getIsOpen(String code) {
         if (StringUtils.isNotBlank(code)) {
             SysConfig config = findByCode(code);
             if (config != null) {

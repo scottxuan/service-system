@@ -56,7 +56,7 @@ public interface SysConfigService extends BaseService<SysConfig> {
      * @param code
      * @return
      */
-    ResultBo<String> findTextByCode(String code);
+    ResultBo<String> getText(String code);
 
 
     /**
@@ -64,19 +64,19 @@ public interface SysConfigService extends BaseService<SysConfig> {
      * @param code
      * @return
      */
-    ResultBo<String> findSingleByCode(String code);
+    ResultBo<String> getSingle(String code);
 
     /**
      * 根据code查询value
      * @param code
      * @return
      */
-    ResultBo<List<String>> findMultipleByCode(String code);
+    ResultBo<List<String>> getMultiple(String code);
 
     /**
      * 根据code查询value
      * @param code
      * @return
      */
-    ResultBo<Boolean> findBooleanByCode(String code);
+    ResultBo<Boolean> getIsOpen(String code);
 }

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author scottxuan
  * @since 2020-08-04
  */
-@Api(tags = "10000--账户管理")
+@Api(tags = "20000--账户管理(系统)")
 @RestController
 @RequestMapping(SysUserApi.MAPPING)
 public class SysUserController extends BaseController implements SysUserApi {
